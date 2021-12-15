@@ -1,0 +1,12 @@
+/* miniprogram/pages/testConfigureDetail/jindex1.wxss */
+.title{
+    padding-left: 15px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #999999;
+}
+.number{
+    font-size: 14px;
+    color: #999999;
+    padding-top: 15px;
+}
