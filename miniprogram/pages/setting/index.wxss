@@ -1,5 +1,0 @@
-/* miniprogram/pages/setting/index.wxss */
-.refresh{
-    text-align: center;
-    margin-top:10px;
-}
