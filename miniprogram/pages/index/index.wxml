@@ -1,0 +1,48 @@
+
+<!--pages/lanyatest/lanyatest.wxml-->
+<van-row>
+  <van-col span="4">
+    <image
+    bindtap="switchLanguage"
+    class="vant-icon"
+      style="width:26px;height:26px;"
+      src="../../dist/images/{{language === 'English'?'english':'chinese'}}.png"
+    />
+  </van-col>
+  <van-col span="2" offset="18">
+    {{belName }}
+    <van-icon size="1.5rem" wx:if="{{connected}}" name="graphic" color="#07c160"/>
+    <van-icon size="1.5rem" wx:if="{{!connected}}" name="warning" color="red"/>
+  </van-col>
+</van-row>
+<van-grid column-num="2">
+  <van-grid-item data-url="bels" bindtap="toRoute" use-slot>
+    <image
+    class="vant-icon"
+      style="width:26px;height:26px;"
+      src="../../dist/images/lanya.png"
+    />
+    <view class="gridTextBox">
+      <text>{{ _t['蓝牙搜索'] }}</text>
+    </view>
+  </van-grid-item>
+  <van-grid-item data-url="testConfigure" icon="edit" bindtap="toRoute" text="{{ _t['测试配置'] }}"/>
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item data-url="configure" icon="user-o" bindtap="toRoute" text="{{ _t['标识'] }}"/>
+  <van-grid-item data-url="setting" icon="setting-o" bindtap="toRoute" text="{{ _t['设置'] }}"/>
+</van-grid>
+<van-grid column-num="2">
+  <van-grid-item data-url="logs" icon="orders-o" text="{{ _t['历史数据'] }}" bindtap="toRoute"/>
+  <van-grid-item data-url="autoMeasure" icon="tv-o" bindtap="toRoute" text="{{ _t['实时测量'] }}"/>
+  <!-- <van-grid-item data-url="bels" bindtap="switchLanguage" use-slot>
+    <image
+    class="vant-icon"
+      style="width:26px;height:26px;"
+      src="../../dist/images/{{language === 'English'?'english':'chinese'}}.png"
+    />
+    <view class="gridTextBox">
+      <text>{{ _t['切换语言'] }}</text>
+    </view>
+  </van-grid-item> -->
+</van-grid>

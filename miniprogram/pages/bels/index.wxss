@@ -1,0 +1,19 @@
+/* miniprogram/pages/bels/index.wxss */
+.connection {
+  color: green;
+}
+.unconnection {
+  color:red;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  color:#fff;
+}

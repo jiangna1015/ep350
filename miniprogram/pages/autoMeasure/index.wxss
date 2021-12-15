@@ -1,0 +1,54 @@
+/* pages/logDetails/index.wxss */
+.van-cell__title {
+  font-size: 28rpx;
+}
+.rateFont {
+  font-size: 40rpx;
+}
+.limitFont {
+  font-size:30rpx;
+}
+.titleFont {
+  font-size:35rpx;
+}
+.icon-box{
+  position: fixed;
+  right: 50%;
+  bottom: 10px;
+  transform: translateX(50%);
+}
+.icon{
+  font-size:22px !important;
+  padding:3px;
+  border:2px solid #333333;
+}
+ .button-dBm{
+  font-size:20px !important;
+ }
+.dBm{
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+}
+.center{
+  height: 40px;
+  line-height: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.centerDBm{
+  height: 80px;
+  line-height: 80px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.right{
+  height: 40px;
+  line-height: 40px;
+  color:#666666;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}

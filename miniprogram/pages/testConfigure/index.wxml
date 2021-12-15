@@ -1,0 +1,13 @@
+<!--pages/testConfigure/index.wxml-->
+<van-divider contentPosition="left">{{type}}{{ _t['服务配置'] }}</van-divider>
+<!-- <van-cell-group >
+  <van-cell title="1 service" data-index="0" icon="location-o" label="GPON" bindtap="checkDetails" is-link/>
+  <van-cell title="2 services" data-index="1" data-name='GPON+XGS-PON' icon="location-o" label="GPON+XGS-PON" bindtap="checkDetails" is-link/>
+  <van-cell title="2 services" data-index="2" icon="location-o" label="GPON+NG-PON2" bindtap="checkDetails" is-link/>
+  <van-cell title="EPON services" data-index="3" icon="location-o" label="1G+10G:1G+10G" bindtap="checkDetails" is-link/>
+  <van-cell title="2 services"  data-index="4" icon="location-o" label="GPON+ALT-PON" bindtap="checkDetails" is-link/>
+  <van-cell title="2 services" data-index="5" icon="location-o" label="GPON+RFoG" bindtap="checkDetails" is-link/>
+</van-cell-group> -->
+<van-cell-group >
+  <van-cell wx:for="{{ serversData }}" wx:key="index" title="{{item.num}}" data-index="{{index}}" icon="location-o" label="{{item.server}}" bindtap="checkDetails" is-link/>
+</van-cell-group>

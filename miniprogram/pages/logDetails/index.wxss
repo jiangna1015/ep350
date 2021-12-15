@@ -1,0 +1,14 @@
+/* pages/logDetails/index.wxss */
+.van-cell__title {
+  font-size: 28rpx;
+}
+.rateFont {
+  font-size: 40rpx;
+  margin-left:10px;
+}
+.limitFont {
+  font-size:30rpx;
+}
+.titleFont {
+  font-size:35rpx;
+}

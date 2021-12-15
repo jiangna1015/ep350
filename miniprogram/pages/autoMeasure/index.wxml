@@ -1,0 +1,62 @@
+<!--pages/logDetails/index.wxml-->
+<van-toast id="van-toast" />
+<view>
+  <h2>{{ _t['实时测量'] }}</h2> 
+    <van-button disabled="{{btnDisabled}}" wx:if="{{ !starting }}" type="primary" block bindtap="startMeasure">{{ _t['开始测量'] }}</van-button>
+    <van-button disabled="{{btnDisabled}}" wx:if="{{ starting }}" type="danger" block bindtap="stopMeasure">{{ _t['停止测量'] }}</van-button>
+    <van-cell title="{{ _t['综合状态'] }}">
+      <view slot="">
+        <van-tag wx:if="{{isPass!==2}}" type="{{ isPass?'success':'danger'}}">{{ isPass?_t['通过'] + '✔':_t['未通过'] + '✖'}}</van-tag>
+        <van-tag wx:elif="{{isPass==2}}" type="success"> </van-tag>
+      </view>
+    </van-cell>   
+</view>
+<view wx:for="{{services}}" wx:key="i">
+  <h2 class="titleFont">({{item.name + _t['活动'] }})</h2>
+  <van-divider />
+  <van-row>
+    <van-col span="8" >
+      <view class="center">↑ {{ _t['上行功率'] }}</view>
+      <van-tag class="center" type="{{item.up.type ===0?'success':'danger'}}">{{item.up.type ===0?'✔':'✖'}}</van-tag>
+    </van-col>
+    <van-col span="8">
+    <view class="rateFont centerDBm"> {{item.up.type === 1?'--HIGHT--':item.up.type === 2?'--LOW--':item.up.data + unit}} </view> 
+     </van-col>
+    <van-col span="8">
+      <view>
+        <text class="right">{{ _t['最大值'] + item.up.max + unit}}</text>
+      </view>
+      <view>
+        <text class="right">{{ _t['最小值']+ item.up.min+ unit}} </text>
+      </view>
+    </van-col>
+  </van-row>
+  <van-divider />
+  <van-row>
+    <van-col span="8" >
+      <view class="center">↓ {{ _t['下行功率'] }}</view>
+      <van-tag class="center" type="{{item.down.type ===0?'success':'danger'}}">{{item.down.type ===0?'✔':'✖'}}</van-tag>
+    </van-col>
+    <van-col span="8">
+    <view class="rateFont centerDBm">  {{item.down.type === 1?'--HIGHT--':item.down.type === 2?'--LOW--':item.down.data + unit}} </view> 
+     </van-col>
+    <van-col span="8">
+      <view>
+        <text class="right">{{ _t['最大值'] + item.down.max+unit}}</text>
+      </view>
+      <view>
+        <text class="right">{{ _t['最小值']+ item.down.min+unit}} </text>
+      </view>
+    </van-col>
+    </van-row>
+    <van-divider />
+</view>
+<!-- <van-icon size="40px" class="icon" color="#999999" name="column" /> -->
+<view class="icon-box">
+  <van-button icon="column" custom-class="icon" round type="default" bindtap="onSave" />
+</view>
+
+<view class="dBm">
+  <van-button custom-class="button-dBm"  round type="default" bindtap="transformationUnit">dBm/W</van-button>
+</view>
+
