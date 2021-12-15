@@ -1,0 +1,41 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class="inner">
+  <button type="primary" class="button" bindtap="searchBEL">{{_t['搜索蓝牙']}}</button>
+  <van-notify id="van-notify" />
+  <van-toast id="van-toast" />
+ <!-- 
+<button type="primary" class="button" bindtap="initializeBEL">1初始化蓝牙</button>
+ <button type="primary" class="button" bindtap="getBELstatue">2获取蓝牙状态</button>
+ <button type="primary" class="button" bindtap="searchBEL">3搜索周边设备</button>
+ <button type="primary" class="button" bindtap="getDeviceInfo">4获取所有设备</button> 
+--> 
+ <!-- <block wx:for="{{devices}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+   <button type="primary" class="button" id="{{item.deviceId}}" style='background-color:red' bindtap="BELConnect">5连接{{item.name}}</button>
+ </block> -->
+ <block>
+  <van-empty wx:if="{{ devices.length == 0 }}" description="{{ _t['附近无匹配设备'] }}" />
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+      <view class="block" catch:tap="noop">
+        {{ noticeMsg }}
+      </view>
+    </view>
+  </van-overlay>
+  <van-cell-group>
+    <van-cell wx:for="{{devices}}" wx:for-index="index" wx:for-item="item" wx:key="index" title-width="50"	 title="{{'No.'+(index+1)}}">
+      <view slot="">
+        <view class="connectBox">
+          <view style="margin-left:10px;">{{item.name}}</view>
+          <view style="margin-left:10px;">{{item.deviceId}}</view>
+          <view style="margin-left:10px;" class="{{item.isConnect?'connection':'unconnection'}}">
+          {{item.isConnect?_t['已连接']:''}}
+          <van-button  wx:if="{{ item.isConnect }}" style="margin-left:10px;float:right;" data-device-id="{{item.deviceId}}" bindtap="disconnect" type="danger">{{_t['断开连接']}}</van-button>
+          </view>
+          <van-button wx:if="{{ !item.isConnect }}" id="{{item.deviceId}}"     data-device-id="{{item.deviceId}}"
+    data-name="{{item.name || item.localName}}"  data-index="{{index}}" style="margin-left:auto;" type="success"  bindtap="connectDevice">{{ _t['连接'] }}</van-button>
+        </view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+ </block>
+</view>
